@@ -1,0 +1,65 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- load crispy tags-->
+
+{% load crispy_forms_tags %}
+
+<!-- Page Title -->
+
+{% block title %}Sign Up{% endblock %}
+
+<!-- content for signup page -->
+
+{% block content %}
+
+    <h2> Sign Up</h2>
+
+
+<div class="row">
+            <div class="col-md-6 offset-3">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top aligned" style="height: 100px; width: 50%; align-content: center; display: block;" src="{% static 'img/logo blue.png'%}" data-holder-rendered="true">
+                <div class="card-body">
+                  <form method="post">
+
+                      {% csrf_token %}
+                      {{ form|crispy }}
+                      <button class="btn btn-success" type="submit">Sign Up</button>
+
+                  </form>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 offset-3">
+              <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+
+
+                      <div id="fb-root"></div>
+
+                      <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+
+                          if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=1439920832711700&autoLogAppEvents=1';
+                            fjs.parentNode.insertBefore(js, fjs);
+                      }(document, 'script', 'facebook-jssdk'));
+
+                      </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+{% endblock %}
+

@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for comments_list.html -->
+
+{% block title %}comments{% endblock %}
+
+{% block content %}
+
+    <!-- create list of commentss -->
+
+    {% for comments in object_list %}
+
+      <!-- create card deck for displaying commentss -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ comments.Comments_Comment }}</span>
+            <span class="text-muted">{{ comments.Comments_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ comments.Comments_Comments }}</p>
+
+            <a href="{% url 'comments_edit' comments.pk %}">Edit</a> |
+
+            <a href="{% url 'comments_delete' comments.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of commentss -->
+            {% for comment in comments.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.comments_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

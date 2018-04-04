@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.TalentProfile_Actor }}</h2>
+        <p>TalentProfile Child Artist: {{ object.TalentProfile_Child_Artist }}</p>
+        <p>TalentProfile Dancer  : {{ object.TalentProfile_Dancer }}</p>
+        <p>TalentProfile Mimicry Artist : {{ object.TalentProfile_Mimicry_Artist }}</p>
+        <p>TalentProfile Model: {{ object.TalentProfile_Model }}</p>
+        <p> TalentProfile Musician : {{ object.TalentProfile_Musician }}</p>
+        <p>TalentProfile Profile Talent : {{ object.TalentProfile_Profile_Talent }}</p>
+        <p>TalentProfile Singer : {{ object.TalentProfile_Singer }}</p>
+        <p>TalentProfile Special Art : {{ object.TalentProfile_Special_Art }}</p>
+        <p>TalentProfile Theater Artist : {{ object.TalentProfile_Theater_Artist }}</p>
+        <p>TalentProfile Voice Over Artist : {{ object.TalentProfile_Voice_Over_Artist }}</p>
+
+
+    </div>
+
+    <!--    TalentProfile Edit Delete button -->
+
+    <p>
+        <a href="{% url 'TalentProfile_update' TalentProfile.pk %}">Edit</a> |
+
+        <a href="{% url 'TalentProfile_delete' TalentProfile.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'TalentProfile_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

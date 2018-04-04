@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.VoiceOverArtist_Charges_Available }}</h2>
+        <p>VoiceOverArtist User ID : {{ object.VoiceOverArtist_Daily_charges }}</p>
+        <p>VoiceOverArtist Amount  : {{ object.VoiceOverArtist_Description }}</p>
+        <p>VoiceOverArtist End Date : {{ object.VoiceOverArtist_Language }}</p>
+        <p>VoiceOverArtist FOR FILM COIN : {{ object.VoiceOverArtist_Voice_Scale }}</p>
+        <p> VoiceOverArtist Location Allowed : {{ object.VoiceOverArtist_Author }}</p>
+        <p>VoiceOverArtist Openings Allowed : {{ object.VoiceOverArtist_Created_Date }}</p>
+
+
+    </div>
+
+    <!--    VoiceOverArtist Edit Delete button -->
+
+    <p>
+        <a href="{% url 'VoiceOverArtist_update' VoiceOverArtist.pk %}">Edit</a> |
+
+        <a href="{% url 'VoiceOverArtist_delete' VoiceOverArtist.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'VoiceOverArtist_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

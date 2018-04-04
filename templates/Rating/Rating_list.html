@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for Rating_list.html -->
+
+{% block title %}Rating{% endblock %}
+
+{% block content %}
+
+    <!-- create list of Rating -->
+
+    {% for Rating in object_list %}
+
+      <!-- create card deck for displaying Rating -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ Rating.Rating }}</span>
+            <span class="text-muted">{{ Rating.Rating_Create_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ Rating.Rating }}</p>
+
+            <a href="{% url 'Rating_edit' Rating.pk %}">Edit</a> |
+
+            <a href="{% url 'Rating_delete' Rating.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of Rating -->
+            {% for comment in Rating.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.Rating_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

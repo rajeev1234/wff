@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="messages-entry">
+
+        <h2>Author: {{ object.Messages_Author }}</h2>
+        <p>Messages_Subject: {{ object.Messages_Subject }}</p>
+
+
+        <p>Messages_Message:{{ object.Messages_Message }}</p>
+
+        <p>Created_Date:{{ object.Messages_Created_Date }}</p>
+
+    </div>
+
+    <!--    messages Edit Delete button -->
+
+    <p>
+        <a href="{% url 'messages_edit' Messages.pk %}">Edit</a> |
+
+        <a href="{% url 'messages_delete' Messages.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'messages_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

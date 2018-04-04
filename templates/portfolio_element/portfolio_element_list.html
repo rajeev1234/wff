@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for portfolio_element_list.html -->
+
+{% block title %}portfolio_elements{% endblock %}
+
+{% block content %}
+
+    <!-- create list of portfolio_elements -->
+
+    {% for portfolio_element in object_list %}
+
+      <!-- create card deck for displaying portfolio_elements -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ portfolio_element.PortfolioElement_Author }}</span>
+            <span class="text-muted">{{ portfolio_element.PortfolioElement_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ portfolio_element.PortfolioElement_Category }}</p>
+
+            <a href="{% url 'portfolio_element_edit' portfolio_element.pk %}">Edit</a> |
+
+            <a href="{% url 'portfolio_element_delete' portfolio_element.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of portfolio_elements -->
+            {% for comment in portfolio_element.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.portfolio_element_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

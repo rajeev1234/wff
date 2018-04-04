@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="pets-entry">
+
+
+        <h2>Pets_Author : {{ object.Pets_Author }}</h2>
+        <p>Pets_Age : {{ object.Pets_Age }}</p>
+        <p>Pets_Animal_Type : {{ object.Pets_Animal_Type }}</p>
+        <p>Pets_Breed : {{ object.Pets_Breed }}</p>
+        <p>Pets_Daily_Charges : {{ object.Pets_Daily_Charges }}</p>
+        <p>Pets_Description : {{ object.Pets_Description }}</p>
+        <p>Pets_Ownership_Status : {{ object.Pets_Ownership_Status }}</p>
+        <!-- <p>Pets_ID:{{ object.Pets_ID }}</p> -->
+        <p>Pets_Weekly_Charges : {{ object.Pets_Weekly_Charges }}</p>
+        <!-- <p>pets_Message:{{ object.pets_Message }}</p> -->
+        <p>Pets_Created_Date : {{ object.Pets_Created_Date }}</p>
+
+    </div>
+
+    <!--    pets Edit Delete button -->
+
+    <p>
+        <a href="{% url 'pets_edit' Pets.pk %}">Edit</a> |
+
+        <a href="{% url 'pets_delete' Pets.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'pets_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Location_Amenitie-entry">
+
+        <h2>Location Amenitie Carparking : {{ object.Location_Amenitie_Carparking}}</h2>
+        <p> Location Amenitie Carparking Latitide : {{ object.Location_Amenitie_Carparking_Latitide }}</p>
+        <p>Location Amenitie Carparking Longitude : {{ object.Location_Amenitie_Carparking_Longitude }}</p>
+        <p>Location Amenitie Catering Base : {{ object.Location_Amenitie_Catering_Base }}</p>
+        <p>Location Amenitie Catering Base Latitude : {{ object.Location_Amenitie_Catering_Base_Latitude }}</p>
+     <p>Location Amenitie Catering Base Longitude : {{ object.Location_Amenitie_Catering_Base_Longitude }}</p>
+    <p>Location Amenitie Controlling Status : {{ object.Location_Amenitie_Controlling_Status }}</p>
+    <p>Location Amenitie Genset Parking : {{ object.Location_Amenitie_Genset_Parking}}</p>
+    <p>Location Amenitie Genset Parking Latitude : {{ object.Location_Amenitie_Genset_Parking_Latitude }}</p>
+    <p>Location Amenitie Genset Parking Longitude : {{ object.Location_Amenitie_Genset_Parking_Longitude }}</p>
+    <p>Location Amenitie Location Id  : {{ object.Location_Amenitie_Location_Id }}</p>
+    <p>Location Amenitie Truck_Parking_Latitude : {{ object.Location_Amenitie_Truck_Parking_Latitude }}</p>
+    <p>Location Amenitie Truck_Parking_Longitude : {{ object.Location_Amenitie_Truck_Parking_Longitude }}</p>
+    <p>Location Amenitie Vanity_Parking : {{ object.Location_Amenitie_Vanity_Parking }}</p>
+    <p>Location Amenitie anity_Parking_Latitude : {{ object.Location_Amenitie_Vanity_Parking_Latitude }}</p>
+    <p>Location Amenitie Vanity_Parking_Longitude : {{ object.Location_Amenitie_Vanity_Parking_Longitude }}</p>
+    <p>Location Amenitie Washroom : {{ object.Location_Amenitie_Washroom }}</p>
+    <p>Location Amenitie creator : {{ object.Location_Amenitie_Creator }}</p>
+    <p>Location Amenitie created_date : {{ object.Location_Amenitie_Created_Date }}</p>
+
+
+    </div>
+
+    <!--    helpcenter Edit Delete button -->
+
+    <p>
+        <a href="{% url 'Location_Amenitie_edit' location_amenitie.pk %}">Edit</a> |
+
+        <a href="{% url 'Location_Amenitie_delete' location_amenitie.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'helpcenter_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for EducationInfo_list.html -->
+
+{% block title %}EducationInfos{% endblock %}
+
+{% block content %}
+
+    <!-- create list of EducationInfos -->
+
+    {% for EducationInfo in object_list %}
+
+      <!-- create card deck for displaying EducationInfos -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ EducationInfo.EducationInfo_Creator }}</span>
+            <span class="text-muted">{{ EducationInfo.EducationInfo_Created_Time }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ EducationInfo.EducationInfo_Message }}</p>
+
+            <a href="{% url 'EducationInfo_update' EducationInfo.pk %}">Edit</a> |
+
+            <a href="{% url 'EducationInfo_delete' EducationInfo.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of EducationInfos -->
+            {% for comment in EducationInfo.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.EducationInfo_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

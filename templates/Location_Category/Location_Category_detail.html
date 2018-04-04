@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Location_Category-entry">
+
+        <h2>Category No : {{ object.Location_Category_No}}</h2>
+        <p>Location Category Name : {{ object.Location_Category_Name }}</p>
+        <p>created date : {{ object.Location_Category_Created_Date }}</p>
+        <p>Location Creator Id : {{ object.Location_Category_Created_Date }}</p>
+
+
+    </div>
+
+    <!--    Location_Category Edit Delete button -->
+
+    <p>
+        <a href="{% url 'Location_Category_edit' location_category.pk %}">Edit</a> |
+
+        <a href="{% url 'Location_Category_delete' location_category.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'Location_Category_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

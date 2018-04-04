@@ -1,0 +1,62 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for helpcategory_list.html -->
+
+{% block title %}helpQna{% endblock %}
+
+{% block content %}
+
+    <!-- create list of helpqna -->
+
+    {% for helpQna in object_list %}
+
+      <!-- create card deck for displaying helpqna -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">Help_Qna_Answer : {{ helpQna.Help_Qna_Answer }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>Help_Qna_Answer:{{ helpQna.Help_Qna_Answer }}</p>
+            <p>Help_Qna_Article_id:{{ helpQna.Help_Qna_Article_Id }}</p>
+            <p>Help_Qna_Question:{{ helpQna.Help_Qna_Question }}</p>
+            <p>Help_Qna_creator:{{ helpQna.Help_Qna_Creator }}</p>
+
+            <a href="{% url 'helpQna_edit' helpQna.pk %}">Edit</a> |
+
+            <a href="{% url 'helpQna_delete' helpQna.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of helpqna -->
+            {% for comment in helpQna.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.helpQna_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

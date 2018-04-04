@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for userdetails_list.html -->
+
+{% block title %}userdetailss{% endblock %}
+
+{% block content %}
+
+    <!-- create list of userdetailss -->
+
+    {% for userdetails in object_list %}
+
+      <!-- create card deck for displaying userdetailss -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ userdetails.UserDetails_Message }}</span>
+            <span class="text-muted">{{ userdetails.UserDetails_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ userdetails.UserDetails_Message }}</p>
+
+            <a href="{% url 'userdetails_edit' userdetails.pk %}">Edit</a> |
+
+            <a href="{% url 'userdetails_delete' userdetails.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of userdetailss -->
+            {% for comment in userdetails.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.UserDetails_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for FilmRecceRoute_list.html -->
+
+{% block title %}FilmRecceRoutes{% endblock %}
+
+{% block content %}
+
+    <!-- create list of FilmRecceRoutes -->
+
+    {% for FilmRecceRoute in object_list %}
+
+      <!-- create card deck for displaying FilmRecceRoutes -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ FilmRecceRoute.FilmRecceRoute_Creator }}</span>
+            <span class="text-muted">{{ FilmRecceRoute.FilmRecceRoute_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ FilmRecceRoute.FilmRecceRoute_Filmrecce_Name }}</p>
+
+            <a href="{% url 'FilmRecceRoute_update' FilmRecceRoute.pk %}">Edit</a> |
+
+            <a href="{% url 'FilmRecceRoute_delete' FilmRecceRoute.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of FilmRecceRoutes -->
+            {% for comment in FilmRecceRoute.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.FilmRecceRoute_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

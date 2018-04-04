@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="booking-entry">
+
+        <h2>{{ object.Booking_Status }}</h2>
+        <p>{{ object.Booking_Created_Date }}</p>
+
+    </div>
+
+    <!--    booking Edit Delete button -->
+
+    <p>
+        <a href="{% url 'booking_edit' booking.pk %}">Edit</a> |
+
+        <a href="{% url 'booking_delete' booking.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'booking_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

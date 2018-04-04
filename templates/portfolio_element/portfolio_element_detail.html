@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="portfolio_element-entry">
+
+
+        <h2>Portfolio Element Author : {{ object.PortfolioElement_Author }}</h2>
+        <p>Portfolio Element Category : {{ object.PortfolioElement_Category }}</p>
+        <p>Portfolio Element Director : {{ object.PortfolioElement_Director }}</p>
+        <p>Portfolio Element Production_House : {{ object.PortfolioElement_Production_House }}</p>
+        <p>Portfolio Element Title : {{ object.PortfolioElement_Title }}</p>
+        <p>Portfolio Element Creator : {{ object.PortfolioElement_Creator }}</p>
+        <p>Portfolio Element Image : {{ object.PortfolioElement_Image }}</p>
+        <p>Portfolio Element Message : {{ object.portfolio_element_Message }}</p>
+        <p>Portfolio Element Created_Date : {{ object.Created_Date }}</p>
+
+    </div>
+
+    <!--    portfolio_element Edit Delete button -->
+
+    <p>
+        <a href="{% url 'portfolio_element_edit' PortfolioElement.pk %}">Edit</a> |
+
+        <a href="{% url 'portfolio_element_delete' PortfolioElement.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'portfolio_element_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

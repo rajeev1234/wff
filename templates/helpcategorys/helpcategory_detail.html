@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Help_Category-entry">
+
+        <h2>Help_Category_Name : {{ object.Help_Category_Name }}</h2>
+        <p>Your Header ID: {{ object.Help_Category_Header_Id }}</p>
+        <p>Help_Category_Created_Date : {{ object.Help_Category_Created_Date }}</p>
+    <p>Creator :{{ object.Help_Category_Creator }}</p>
+
+    </div>
+
+    <!--    helpcategory Edit Delete button -->
+
+    <p>
+        <a href="{% url 'helpcategory_edit' help_category.pk %}">Edit</a> |
+
+        <a href="{% url 'helpcategory_delete' help_category.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'helpcategory_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for helpcategory_list.html -->
+
+{% block title %}helpcenter{% endblock %}
+
+{% block content %}
+
+    <!-- create list of helpcenter -->
+
+    {% for helpcenter in object_list %}
+
+      <!-- create card deck for displaying helpcenter -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">Help_Center_Help_Name : {{ helpcenter.Help_Center_Help_Name }}</span>
+            <span class="text-muted">Help_Center_Help_Id : {{ helpcenter.Help_Center_Help_Id }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p> {{ helpcenter.Help_Center_Creator }}</p>
+
+            <a href="{% url 'helpcenter_edit' helpcenter.pk %}">Edit</a> |
+
+            <a href="{% url 'helpcenter_delete' helpcenter.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of helpcenter -->
+            {% for comment in helpcenter.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.Help_Center_Help_Center_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

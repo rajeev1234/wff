@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="location_subcategory-entry">
+
+
+        <h2>Author: {{ object.LocationSubCategory_Author }}</h2>
+        <p>Location_Category: {{ object.LocationSubCategory_Location_Category }}</p>
+        <p>location_subcategory: {{ object.Location_Subcategory }}</p>
+        <p>Subcategory_No: {{ object.LocationSubCategory_Subcategory_No }}</p>
+
+        <p>Location_Subcategory_Message: {{ object.LocationSubCategory_Message }}</p>
+        <p>Created_Date: {{ object.LocationSubCategory_Created_Date }}</p>
+
+    </div>
+
+    <!--    location_subcategory Edit Delete button -->
+
+    <p>
+        <a href="{% url 'location_subcategory_edit' LocationSubCategory.pk %}">Edit</a> |
+
+        <a href="{% url 'location_subcategory_delete' LocationSubCategory.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'location_subcategory_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="userprofessionalinfo-entry">
+
+        <h2>UserProfessionalInfo_Account_Name:{{ object.UserProfessionalInfo_Account_Name }}</h2>
+        <p>UserProfessionalInfo_Account_Number: {{ object.UserProfessionalInfo_Account_Number }}</p>
+        <p>UserProfessionalInfo_Bank_Name:{{ object.UserProfessionalInfo_Bank_Name }}</p>
+        <p>UserProfessionalInfo_Bank_Account: {{ object.UserProfessionalInfo_Bank_Account }}</p>
+        <p>UserProfessionalInfo_Charges_Negotiation: {{ object.UserProfessionalInfo_Charges_Negotiation }}</p>
+        <p>UserProfessionalInfo_Daily_Charges:{{ object.UserProfessionalInfo_Daily_Charges }}</p>
+        <p>UserProfessionalInfo_Expirienced: {{ object.UserProfessionalInfo_Expirienced }}</p>
+        <p>UserProfessionalInfo_Hometown:{{ object.UserProfessionalInfo_Hometown }}</p>
+        <p>UserProfessionalInfo_IFSI_CODE:{{ object.UserProfessionalInfo_IFSI_CODE }}</p>
+        <p>UserProfessionalInfo_Monthly_Charges: {{ object.UserProfessionalInfo_Monthly_Charges }}</p>
+        <p>UserProfessionalInfo_Rates_Avialability:{{ object.UserProfessionalInfo_Rates_Avialability }}</p>
+        <p>UserProfessionalInfo_User_Proffessional_Category: {{ object.UserProfessionalInfo_User_Proffessional_Category }}</p>
+        <p>UserProfessionalInfo_Weekly_Charges:{{ object.UserProfessionalInfo_Weekly_Charges }}</p>
+        <p>UserProfessionalInfo_Writtable_Language:{{ object.UserProfessionalInfo_Writtable_Language }}</p>
+        <p>UserProfessionalInfo_Weekly_Charges:{{ object.UserProfessionalInfo_Weekly_Charges }}</p>
+        <p>UserProfessionalInfo_Years_Of_Experience:{{ object.UserProfessionalInfo_Years_Of_Experience }}</p>
+    </div>
+
+    <!--    userprofessionalinfo Edit Delete button -->
+
+    <p>
+        <a href="{% url 'userprofessionalinfo_edit' userprofessionalinfo.pk %}">Edit</a> |
+
+        <a href="{% url 'userprofessionalinfo_delete' userprofessionalinfo.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'userprofessionalinfo_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="location_financial-entry">
+
+
+        <!-- <h2>Author: {{ object.location_financial_Author }}</h2> -->
+        <p> Availability:               {{ object.LocationFinancial_Availability }}</p>
+        <p>Discount_on_crewsize:        {{ object.LocationFinancial_Discount_On_Crewsize }}</p>
+        <p>Discount_On_Shoot_Length:    {{ object.LocationFinancial_Discount_On_Shoot_Length }}</p>
+        <p>Location_Id:                 {{ object.LocationFinancial_Location_Id }}</p>
+        <p>Monthly_Rate_Crewsize1:      {{ object.LocationFinancial_Monthly_Rate_Crewsize1 }}</p>
+        <p>Monthly_Rate_Crewsize2:      {{ object.LocationFinancial_Monthly_Rate_Crewsize2 }}</p>
+        <p>Monthly_Rate_Crewsize3:      {{ object.LocationFinancial_Monthly_Rate_Crewsize3 }}</p>
+        <p>Monthly_Rate_Crewsize4:      {{ object.LocationFinancial_Monthly_Rate_Crewsize4 }}</p>
+        <p>One_Day_Rent_Crewsize1:      {{ object.LocationFinancial_One_Day_Rent_Crewsize1 }}</p>
+        <p>One_Day_Rent_Crewsize2:      {{ object.LocationFinancial_One_Day_Rent_Crewsize2 }}</p>
+        <p>One_Day_Rent_Crewsize3:      {{ object.LocationFinancial_One_Day_Rent_Crewsize3 }}</p>
+        <p>One_Day_Rent_Crewsize4:      {{ object.LocationFinancial_One_Day_Rent_Crewsize4 }}</p>
+        <p>Prices_Available:            {{ object.LocationFinancial_Prices_Available }}</p>
+        <p>Student_Rate:                {{ object.LocationFinancial_Student_Rate }}</p>
+        <p>Weekly_Rate_Crewsize1:       {{ object.LocationFinancial_Weekly_Rate_Crewsize1 }}</p>
+        <p>Weekly_Rate_Crewsize2:       {{ object.LocationFinancial_Weekly_Rate_Crewsize2 }}</p>
+        <p>Weekly_Rate_Crewsize3:       {{ object.LocationFinancial_Weekly_Rate_Crewsize3 }}</p>
+        <p>Weekly_Rate_Crewsize4:       {{ object.LocationFinancial_Weekly_Rate_Crewsize4 }}</p>
+        <!-- <p>location_financial_Message:  {{ object.location_financial_Message }}</p>
+        <p>Created_Date:                {{ object.Created_Date }}</p> -->
+
+
+    </div>
+
+    <!--    location_financial Edit Delete button -->
+
+    <p>
+        <a href="{% url 'location_financial_update' LocationFinancial.pk %}">Edit</a> |
+
+        <a href="{% url 'location_financial_delete' LocationFinancial.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'location_financial_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

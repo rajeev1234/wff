@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.FilmLocationScheduleForPermit_Location }}</h2>
+        <p>SNo : {{ object.FilmLocationScheduleForPermit_SNo }}</p>
+        <p>Creater : {{ object.FilmLocationScheduleForPermit_Creator }}</p>
+        <p>Modified Date : {{ object.FilmLocationScheduleForPermit_Modified_Date }}</p>
+        <p>Created Date : {{ object.FilmLocationScheduleForPermit_Created_Date }}</p>
+
+    </div>
+
+    <!--    FilmLocationScheduleForPermit Edit Delete button -->
+
+    <p>
+        <a href="{% url 'FilmLocationScheduleForPermit_update' FilmLocationScheduleForPermit.pk %}">Edit</a> |
+
+        <a href="{% url 'FilmLocationScheduleForPermit_delete' FilmLocationScheduleForPermit.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'FilmLocationScheduleForPermit_list' %}">All Permits</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for officer_contact_list.html -->
+
+{% block title %}officer_contacts{% endblock %}
+
+{% block content %}
+
+    <!-- create list of officer_contacts -->
+
+    {% for officer_contact in object_list %}
+
+      <!-- create card deck for displaying officer_contacts -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ officer_contact.OfficerContact_Author }}</span>
+            <span class="text-muted">{{ officer_contact.OfficerContact_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ officer_contact.OfficerContact_DEPARTMENT }}</p>
+
+            <a href="{% url 'officer_contact_edit' officer_contact.pk %}">Edit</a> |
+
+            <a href="{% url 'officer_contact_delete' officer_contact.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of officer_contacts -->
+            {% for comment in officer_contact.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.officer_contact_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

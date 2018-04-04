@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for SubscriptionPlan_list.html -->
+
+{% block title %}SubscriptionPlan{% endblock %}
+
+{% block content %}
+
+    <!-- create list of SubscriptionPlan -->
+
+    {% for SubscriptionPlan in object_list %}
+
+      <!-- create card deck for displaying SubscriptionPlan -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ SubscriptionPlan.SubscriptionPlan_Type }}</span>
+            <span class="text-muted">{{ SubscriptionPlan.SubscriptionPlan_Start_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ SubscriptionPlan.SubscriptionPlan_Amount }}</p>
+
+            <a href="{% url 'SubscriptionPlan_update' SubscriptionPlan.pk %}">Edit</a> |
+
+            <a href="{% url 'SubscriptionPlan_delete' SubscriptionPlan.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of SubscriptionPlan -->
+            {% for comment in SubscriptionPlan.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.SubscriptionPlan_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

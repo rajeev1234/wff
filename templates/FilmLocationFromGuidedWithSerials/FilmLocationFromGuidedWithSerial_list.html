@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for FilmLocationFromGuidedWithSerial_list.html -->
+
+{% block title %}FilmLocationFromGuidedWithSerials{% endblock %}
+
+{% block content %}
+
+    <!-- create list of FilmLocationFromGuidedWithSerials -->
+
+    {% for FilmLocationFromGuidedWithSerial in object_list %}
+
+      <!-- create card deck for displaying FilmLocationFromGuidedWithSerials -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ FilmLocationFromGuidedWithSerial.FilmLocationFromGuidedWithSerial_Creator }}</span>
+            <span class="text-muted">{{ FilmLocationFromGuidedWithSerial.FilmLocationFromGuidedWithSerial_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ FilmLocationFromGuidedWithSerial.FilmLocationFromGuidedWithSerial_Location }}</p>
+
+            <a href="{% url 'FilmLocationFromGuidedWithSerial_update' FilmLocationFromGuidedWithSerial.pk %}">Edit</a> |
+
+            <a href="{% url 'FilmLocationFromGuidedWithSerial_delete' FilmLocationFromGuidedWithSerial.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of FilmLocationFromGuidedWithSerials -->
+            {% for comment in FilmLocationFromGuidedWithSerial.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.FilmLocationFromGuidedWithSerial_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

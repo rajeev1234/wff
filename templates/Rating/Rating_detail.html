@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Rating-entry">
+
+        <h2>Rating : {{ object.Rating }}</h2>
+        <p> User ID : {{ object.Rating_User_ID }}</p>
+        <p>Created Date : {{ object.Rating_Create_Date }}</p>
+
+    </div>
+
+    <!--    Rating Edit Delete button -->
+
+    <p>
+        <a href="{% url 'Rating_edit' rating.pk %}">Edit</a> |
+
+        <a href="{% url 'Rating_delete' rating.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'Rating_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

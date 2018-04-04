@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for profile_projects_list.html -->
+
+{% block title %}profile_projectss{% endblock %}
+
+{% block content %}
+
+    <!-- create list of profile_projectss -->
+
+    {% for profile_projects in object_list %}
+
+      <!-- create card deck for displaying profile_projectss -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ profile_projects.profile_projects_Author }}</span>
+            <span class="text-muted">{{ profile_projects.Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ profile_projects.profile_projects_Message }}</p>
+
+            <a href="{% url 'profile_projects_edit' profile_projects.pk %}">Edit</a> |
+
+            <a href="{% url 'profile_projects_delete' profile_projects.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of profile_projectss -->
+            {% for comment in profile_projects.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.profile_projects_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

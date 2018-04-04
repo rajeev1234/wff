@@ -1,0 +1,109 @@
+
+<!-- declare document navbar -->
+{% load static %}
+
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+
+    <!-- declare navbar branding -->
+
+    <a class="navbar-brand" href="http://www.workforfilms.com" rel="tooltip" title="" data-placement="bottom" target="_blank" data-original-title="Designed by VESAHE. Coded by VESAHE TEAM">
+			<img src={% static 'img/navbar_logo.png' %}></a>
+
+    <!-- declare toggled navbar button -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+    <!-- declare navbar content -->
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+            <!-- check for authentication -->
+
+            {% if user.is_authenticated %}
+
+                <!-- if user is looged in -->
+
+                <ul class="navbar-nav mr-auto">
+
+                    <!-- show post new button -->
+                    <li class="nav-item">
+
+                        <a href="{% url 'post_new' %}">+ New</a>
+
+                    </li>
+
+
+                </ul>
+
+                    <!-- show navbar_user_menu_dropdown -->
+
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+
+                        <!-- navbar_user_menu_dropdown_header -->
+
+                        <a class="nav-link dropdown-toggle" href="#" id="userMenu"
+
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                            {{ user.username }}
+
+                        </a>
+
+                        <!-- navbar_user_menu_dropdown_menu -->
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+
+
+                            <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+
+
+                            <div class="dropdown-divider"></div>
+
+
+                            <a class="dropdown-item" href="{% url 'logout' %}">Log out</a> </div>
+
+                    </li>
+
+                </ul>
+
+            <!-- if user not looged in-->
+
+            {% else %}
+
+            <!-- show login and signup button -->
+
+            <form class="form-inline ml-auto">
+
+                <a href="{% url 'login' %}" class="btn btn-outline-secondary">Log in</a>
+                <a href="{% url 'signup' %}" class="btn btn-primary ml-2">Sign up</a>
+
+            </form>
+
+            {% endif %}
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                    aria-expanded="false" aria-label="Toggle navigation">
+
+                <span> class="navbar-toggler-icon"></span>
+
+            </button>
+
+    </div>
+
+</nav>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="platform_works-entry">
+
+
+        <h2>PlatformWorks_Author : {{ object.PlatformWorks_Author }}</h2>
+        <p>PlatformWorks_Project_Name : {{ object.PlatformWorks_Project_Name }}</p>
+        <p>PlatformWorks_Project_Details : {{ object.PlatformWorks_Project_Details }}</p>
+
+        <p>PlatformWorks_Client_Name : {{ object.PlatformWorks_Client_Name }}</p>
+        <p>PlatformWorks_Created_Date : {{ object.PlatformWorks_Created_Date }}</p>
+
+    </div>
+
+    <!--    platform_works Edit Delete button -->
+
+    <p>
+        <a href="{% url 'platform_works_edit' PlatformWorks.pk %}">Edit</a> |
+
+        <a href="{% url 'platform_works_delete' PlatformWorks.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'platform_works_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

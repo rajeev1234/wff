@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="officer_contact-entry">
+
+
+        <h2>OfficerContact_Author: {{ object.OfficerContact_Author }}</h2>
+        <p>OfficerContact_CONTACT_NUMBER:{{ object.OfficerContact_CONTACT_NUMBER }}</p>
+        <p>OfficerContact_DEPARTMENT:{{ object.OfficerContact_DEPARTMENT }}</p>
+        <p>OfficerContact_DESIGNATIONS:{{ object.OfficerContact_DESIGNATIONS }}</p>
+        <p>OfficerContact_E_Mail:{{ object.OfficerContact_E_Mail }}</p>
+        <p>OfficerContact_NAME:{{ object.OfficerContact_Name }}</p>
+
+        <!-- <p>officer_contact_Message:{{ object.officer_contact_Message }}</p> -->
+        <p>OfficerContact_Created_Date:{{ object.OfficerContact_Created_Date }}</p>
+
+    </div>
+
+    <!--    officer_contact Edit Delete button -->
+
+    <p>
+        <a href="{% url 'officer_contact_edit' OfficerContact.pk %}">Edit</a> |
+
+        <a href="{% url 'officer_contact_delete' OfficerContact.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'officer_contact_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

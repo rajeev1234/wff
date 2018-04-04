@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for SpecialArt_list.html -->
+
+{% block title %}SpecialArts{% endblock %}
+
+{% block content %}
+
+    <!-- create list of SpecialArts -->
+
+    {% for SpecialArt in object_list %}
+
+      <!-- create card deck for displaying SpecialArts -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ SpecialArt.SpecialArt_Description }}</span>
+           {#  <span class="text-muted">{{ SpecialArt.SpecialArt_Created_Time }}</span> #}
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ SpecialArt.SpecialArt_Description }}</p>
+
+            <a href="{% url 'SpecialArt_update' SpecialArt.pk %}">Edit</a> |
+
+            <a href="{% url 'SpecialArt_delete' SpecialArt.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of SpecialArts -->
+            {% for comment in SpecialArt.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.SpecialArt_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

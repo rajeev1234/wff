@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.Service_Subcatagory_Name }}</h2>
+
+    </div>
+
+    <!--    ServiceSubcatagory Edit Delete button -->
+
+    <p>
+        <a href="{% url 'ServiceSubcatagory_update' ServiceSubcatagory.pk %}">Edit</a> |
+
+        <a href="{% url 'ServiceSubcatagory_delete' ServiceSubcatagory.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'ServiceSubcatagory_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,61 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for Location_Amenitie_list.html -->
+
+{% block title %}Location_Amenitie{% endblock %}
+
+{% block content %}
+
+    <!-- create list of Location_Amenitie -->
+
+    {% for Location_Amenitie in object_list %}
+
+      <!-- create card deck for displaying Location_Amenitie -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ Location_Amenitie.Controlling_status }}</span>
+            <span class="text-muted">{{ Location_Amenitie.created_date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ Location_Amenitie.Location_Amenitie_Message }}</p>
+            <h2>Location_Amenitie_Carparking : {{ Location_Amenitie.Location_Amenitie_Location_Id}}</h2>
+
+            <a href="{% url 'Location_Amenitie_edit' Location_Amenitie.pk %}">Edit</a> |
+
+            <a href="{% url 'Location_Amenitie_delete' Location_Amenitie.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of Location_Amenitie -->
+            {% for comment in Location_Amenitie.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.Location_Amenitie_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

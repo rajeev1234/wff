@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.States }}</h2>
+        {# <p>Author: {{ object.State_Creator }}</p> #}
+        {# <p>{{ object.State_Created_Time }}</p> #}
+
+    </div>
+
+    <!--    State Edit Delete button -->
+
+    <p>
+        <a href="{% url 'State_update' State.pk %}">Edit</a> |
+
+        <a href="{% url 'State_delete' State.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'State_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

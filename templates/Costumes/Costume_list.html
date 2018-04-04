@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for Costume_list.html -->
+
+{% block title %}Costumes{% endblock %}
+
+{% block content %}
+
+    <!-- create list of Costumes -->
+
+    {% for Costume in object_list %}
+
+      <!-- create card deck for displaying Costumes -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ Costume.Costume_Creator }}</span>
+            <span class="text-muted">{{ Costume.Costume_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ Costume.Costume_Style }}</p>
+
+            <a href="{% url 'Costume_update' Costume.pk %}">Edit</a> |
+
+            <a href="{% url 'Costume_delete' Costume.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of Costumes -->
+            {% for comment in Costume.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ Comment.Costume_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

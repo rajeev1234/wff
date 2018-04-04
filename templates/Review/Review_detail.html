@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Review-entry">
+
+        <h2>Rating : {{ object.Review_Rating }}</h2>
+        <p> Review_Text : {{ object.Review_Text }}</p>
+
+
+    </div>
+
+    <!--    Review Edit Delete button -->
+
+    <p>
+        <a href="{% url 'Review_edit' review.pk %}">Edit</a> |
+
+        <a href="{% url 'Review_delete' review.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'Review_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

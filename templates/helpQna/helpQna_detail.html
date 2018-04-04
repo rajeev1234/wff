@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="helpcenter-entry">
+
+        <h2>Help_Qna_Answer :{{ object.Help_Qna_Answer }}</h2>
+        <p> Help_Qna_Article_Id :{{ object.Help_Qna_Article_Id }}</p>
+        <p>Help_Qna_Question :{{ object.Help_Qna_Question }}</p>
+         <p>Help_Qna_Creator : {{ object.Help_Qna_Creator }}</p>
+         <p>Help_Qna_Created_Date : {{ object.Help_Qna_Created_Date }}</p>
+
+
+    </div>
+
+    <!--    helpcenter Edit Delete button -->
+
+    <p>
+        <a href="{% url 'helpQna_edit' helpqna.pk %}">Edit</a> |
+
+        <a href="{% url 'helpQna_delete' helpqna.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'helpcenter_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

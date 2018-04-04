@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.SubscriptionPlan }}</h2>
+        <p>SubscriptionPlan User ID : {{ object.SubscriptionPlan_User_ID }}</p>
+        <p>SubscriptionPlan Amount  : {{ object.SubscriptionPlan_Amount }}</p>
+        <p>SubscriptionPlan End Date : {{ object.SubscriptionPlan_End_Date }}</p>
+        <p>SubscriptionPlan FOR FILM COIN : {{ object.SubscriptionPlan_FOR_FILM_COIN }}</p>
+        <p> SubscriptionPlan Location Allowed : {{ object.SubscriptionPlan_Location_Allowed }}</p>
+        <p>SubscriptionPlan Openings Allowed : {{ object.SubscriptionPlan_Openings_Allowed }}</p>
+        <p>SubscriptionPlan Pitch Allowed : {{ object.SubscriptionPlan_Pitch_Allowed }}</p>
+        <p>SubscriptionPlan Pitch Box Capacity Image per pitch : {{ object.SubscriptionPlan_Pitch_Box_Capacity_Image_per_pitch }}</p>
+        <p>SubscriptionPlan Start_Date : {{ object.SubscriptionPlan_Start_Date }}</p>
+        <p>SubscriptionPlan Type : {{ object.SubscriptionPlan_Type }}</p>
+
+
+    </div>
+
+    <!--    SubscriptionPlan Edit Delete button -->
+
+    <p>
+        <a href="{% url 'SubscriptionPlan_update' SubscriptionPlan.pk %}">Edit</a> |
+
+        <a href="{% url 'SubscriptionPlan_delete' SubscriptionPlan.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'SubscriptionPlan_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for home.html -->
+
+{% block title %}Home{% endblock %}
+
+<!-- create content for home.html via base.html -->
+
+{% block content %}
+
+<!-- Display bolck for home.html via base.html -->
+
+    <div class="jumbotron" >
+    
+
+        <h1 class="display-4">Work for Films Social Messaging App</h1>
+
+        <p class="lead">Activate Your filmy Network.</p>
+
+        <p class="lead">
+
+            <a class="btn btn-primary btn-lg" href="{% url 'post_list' %}" role="button" >View All Messages</a>
+
+        </p>
+
+    </div>
+
+{% endblock %}

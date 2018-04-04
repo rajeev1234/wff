@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Dancer-entry">
+
+        <h2>{{ object.Dancer_Creator }}</h2>
+        <p>Dancing Style : {{ object.Dancer_Dancing_Style }}</p>
+        <p>Genre : {{ object.Dancer_Genre }}</p>
+        <p>Daily Charges : {{ object.Dancer_Daily_Charges }}</p>
+        <p>Charges Available : {{ object.Dancer_Charges_Available }}</p>
+        <p>Description :  {{ object.Dancer_Description }}</p>
+        <p>Created Date : {{ object.Dancer_Created_Date }}</p>
+        <p>Modified Date : {{ object.Dancer_Modified_Date }}</p>
+
+    </div>
+
+    <!--    Dancer Edit Delete button -->
+
+    <p>
+        <a href="{% url 'Dancer_update' Dancer.pk %}">Edit</a> |
+
+        <a href="{% url 'Dancer_delete' Dancer.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'Dancer_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

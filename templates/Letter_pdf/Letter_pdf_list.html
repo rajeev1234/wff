@@ -1,0 +1,62 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for helpcategory_list.html -->
+
+{% block title %}Letter_pdf{% endblock %}
+
+{% block content %}
+
+    <!-- create list of Letter_pdf -->
+
+    {% for Letter_pdf in object_list %}
+
+      <!-- create card deck for displaying Letter_pdf -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ Letter_pdf.Letter_pdf_Addressing_Officer }}</span>
+            <span class="text-muted">{{ Letter_pdf.Letter_pdf_Project }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>Letter pdf Creator : {{ Letter_pdf.Letter_pdf_Creator }}</p>
+            <p> Letter pdf Created Date : {{ Letter_pdf.Letter_pdf_Created_Date }}</p>
+             <p>Letter pdf Project : {{ Letter_pdf.Letter_pdf_Project }}</p>
+
+            <a href="{% url 'Letter_pdf_edit' Letter_pdf.pk %}">Edit</a> |
+
+            <a href="{% url 'Letter_pdf_delete' Letter_pdf.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of Letter_pdf -->
+            {% for comment in Letter_pdf.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.Letter_pdf_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

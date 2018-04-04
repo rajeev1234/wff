@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="profile_projects-entry">
+
+        <h2>Author: {{ object.profile_projects_Author }}</h2>
+        <p>Category:{{ object.Category }}</p>
+        <p>Director:{{ object.Director }}</p>
+        <p>Production_House:{{ object.Production_House }}</p>
+        <p>Title:{{ object.Title }}</p>
+        <p>profile_projects_Message:{{ object.profile_projects_Message }}</p>
+        <p>Created_Date:{{ object.Created_Date }}</p>
+
+    </div>
+
+    <!--    profile_projects Edit Delete button -->
+
+    <p>
+        <a href="{% url 'profile_projects_edit' profile_projects.pk %}">Edit</a> |
+
+        <a href="{% url 'profile_projects_delete' profile_projects.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'profile_projects_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

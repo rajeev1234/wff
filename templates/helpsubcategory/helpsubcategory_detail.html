@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="helpcenter-entry">
+
+        <h2>Help SubCategory Name:{{ object.Help_SubCategory_Name}}</h2>
+        <p>Help SubCategory Topic_Id:{{ object.Help_SubCategory_Topic_Id }}</p>
+        <p>Help SubCategory Creator :{{ object.Help_SubCategory_Creator }}</p>
+        <p>created date:{{ object.Help_SubCategory_Created_Date }}</p>
+
+    </div>
+
+    <!--    helpcenter Edit Delete button -->
+
+    <p>
+        <a href="{% url 'helpsubcategory_edit' helpsubcategory.pk %}">Edit</a> |
+
+        <a href="{% url 'helpsubcategory_delete' helpsubcategory.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'helpsubcategory_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

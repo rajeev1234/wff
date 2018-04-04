@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="search-entry">
+
+        <h2>City : {{ object.Search_City }}</h2>
+        <p>Key_Word : {{ object.Search_Key_Word }}</p>
+        <p>Range : {{ object.Search_Range }}</p>
+     <p>Created Date : {{ object.Search_Created_Date }}</p>
+    <p>Creator : {{ object.Search_Creator }}</p>
+
+
+    </div>
+
+    <!--    search Edit Delete button -->
+
+    <p>
+        <a href="{% url 'search_edit' search.pk %}">Edit</a> |
+
+        <a href="{% url 'search_delete' search.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'search_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for Singer_list.html -->
+
+{% block title %}Singers{% endblock %}
+
+{% block content %}
+
+    <!-- create list of Singers -->
+
+    {% for Singer in object_list %}
+
+      <!-- create card deck for displaying Singers -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ Singer.Singer_Description }}</span>
+           {#  <span class="text-muted">{{ Singer.Singer_Created_Time }}</span> #}
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ Singer.Singer_Description }}</p>
+
+            <a href="{% url 'Singer_update' Singer.pk %}">Edit</a> |
+
+            <a href="{% url 'Singer_delete' Singer.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of Singers -->
+            {% for comment in Singer.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.Singer_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

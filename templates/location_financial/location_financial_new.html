@@ -1,0 +1,27 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- block for view from location_financialCreateView -->
+
+{% block content %}
+
+    <h1>Location Finanacial Form</h1>
+
+    <Br>
+    <Br>
+    <Br>
+
+
+    <form action="" method="post">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="btn btn-success ml-2" type="submit">Save</button>
+
+    </form>
+
+{% endblock %}

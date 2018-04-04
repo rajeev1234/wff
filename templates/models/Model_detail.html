@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Model-entry">
+
+
+        <h2>Models_Author: {{ object.Models_Author }}</h2>
+        <p>Models_Body_Type: {{ object.Models_Body_Type }}</p>
+        <p>Models_Description:{{ object.Models_Description }}</p>
+        <p>Models_Ethnicity:{{ object.Models_Ethnicity }}</p>
+        <p>Models_Eye_Colour:{{ object.Models_Eye_Colour }}</p>
+        <p>Models_Hair_Colour:{{ object.Models_Hair_Colour }}</p>
+        <p>Models_Height:{{ object.Models_Height }}</p>
+        <!-- <p>Model_ID:{{ object.Model_ID }}</p> -->
+        <p>Models_Scene_Comfort:{{ object.Models_Scene_Comfort }}</p>
+        <p>Models_Skin_Color:{{ object.Models_Skin_Color }}</p>
+        <p>Models_Smoker:{{ object.Models_Smoker }}</p>
+        <p>Models_Special_Skills:{{ object.Models_Special_Skills }}</p>
+        <p>Models_Weight:{{ object.Models_Weight }}</p>
+
+        <!-- <p>Model_Message:{{ object.Model_Message }}</p> -->
+        <p>Models_Created_Date:{{ object.Models_Created_Date }}</p>
+
+    </div>
+
+    <!--    Model Edit Delete button -->
+
+    <p>
+        <a href="{% url 'Model_edit' Models.pk %}">Edit</a> |
+
+        <a href="{% url 'Model_delete' Models.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'Model_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.EducationInfo_Course }}</h2>
+        <p>EducationInfo Course Detail: {{ object.EducationInfo_Course_Detail }}</p>
+        <p>EducationInfo Institute : {{ object.EducationInfo_Institute }}</p>
+        <p>EducationInfo Passing Year : {{ object.EducationInfo_Passing_Year }}</p>
+        <p>EducationInfo Creator: {{ object.EducationInfo_Creator }}</p>
+        <p>EducationInfo Modified Date : {{ object.EducationInfo_Modified_Date }}</p>
+        <p>EducationInfo Created Time : {{ object.EducationInfo_Created_Time }}</p>
+
+    </div>
+
+    <!--    EducationInfo Edit Delete button -->
+
+    <p>
+        <a href="{% url 'EducationInfo_update' EducationInfo.pk %}">Edit</a> |
+
+        <a href="{% url 'EducationInfo_delete' EducationInfo.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'EducationInfo_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

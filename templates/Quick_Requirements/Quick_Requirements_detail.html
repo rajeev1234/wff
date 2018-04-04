@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Quick_Requirements-entry">
+        <h2>Recipient : {{ object.Quick_Requirements_Recipient }}</h2>
+        <p>Crew Size : {{ object.Quick_Requirements_Crew_Size }}</p>
+        <p> From User : {{ object.Quick_Requirements_From_User }}</p>
+        <p>New Requirement : {{ object.Quick_Requirements_New_Requirement }}</p>
+
+    <p>Requirement Description : {{ object.Quick_Requirements_Requirement_Description }}</p>
+    <p>Shoot Category : {{ object.Quick_Requirements_Shoot_Category }}</p>
+    <p>Shooting Region : {{ object.Quick_Requirements_Shooting_Region }}</p>
+    <p>Tentative Dates : {{ object.Quick_Requirements_Tentative_Dates }}</p>
+    <p>Created Date : {{ object.Quick_Requirements_Created_Date }}</p>
+    <p>Creator : {{ object.Quick_Requirements_Creator }}</p>
+
+    </div>
+
+    <!--    Quick_Requirements Edit Delete button -->
+
+    <p>
+        <a href="{% url 'Quick_Requirements_edit' quick_requirements.pk %}">Edit</a> |
+
+        <a href="{% url 'Quick_Requirements_delete' quick_requirements.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'Quick_Requirements_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

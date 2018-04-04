@@ -1,0 +1,61 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for VoiceOverArtist_list.html -->
+
+{% block title %}VoiceOverArtist{% endblock %}
+
+{% block content %}
+
+    <!-- create list of VoiceOverArtist -->
+
+    {% for VoiceOverArtist in object_list %}
+
+      <!-- create card deck for displaying VoiceOverArtist -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ VoiceOverArtist.VoiceOverArtist_Language }}</span>
+            <span class="text-muted">{{ VoiceOverArtist.VoiceOverArtist_Description }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ VoiceOverArtist.VoiceOverArtist_Charges_Available }}</p>
+            <p>{{ VoiceOverArtist.VoiceOverArtist_Daily_charges }}</p>
+
+            <a href="{% url 'VoiceOverArtist_update' VoiceOverArtist.pk %}">Edit</a> |
+
+            <a href="{% url 'VoiceOverArtist_delete' VoiceOverArtist.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of VoiceOverArtist -->
+            {% for comment in VoiceOverArtist.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.VoiceOverArtist_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

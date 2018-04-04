@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="helpcenter-entry">
+
+        <h2> Help_Name : {{ object.Help_Center_Help_Name }}</h2>
+        <p>Your ID: {{ object.Help_Center_Help_Id }}</p>
+        <p>Center : {{ object.Help_Center_Help_Id }}</p>
+        <p>Help_Center_Creator_id : {{ object.Help_Center_Creator_id }}</p>
+
+    </div>
+
+    <!--    helpcenter Edit Delete button -->
+
+    <p>
+        <a href="{% url 'helpcenter_edit' helpcenter.pk %}">Edit</a> |
+
+        <a href="{% url 'helpcenter_delete' helpcenter.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'helpcenter_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

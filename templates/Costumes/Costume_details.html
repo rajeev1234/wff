@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Costume-entry">
+
+        <h2>{{ object.Costume_Type }}</h2>
+        <p>Costume Creator: {{ object.Costume_Creator }}</p>
+        <p>Costume Created_Date:{{ object.Costume_Created_Date }}</p>
+        <p><span class="text-muted">Costume Color:</span>  {{ object.Costume_Color }}</p>
+        <p>Costume Category:{{ object.Costume_Category }}</p>
+        <p>Costume Style: {{ object.Costume_Style }}</p>
+        <p>Costume Description:{{ object.Costume_Description }}</p>
+        <p>Costume Modification Allowed: {{ object.Costume_Modification_Allowed}}</p>
+        <p>Costume Trend Year:{{ object.Costume_Trend_Year }}</p>
+        <p>Costume Weekly Rent: {{ object.Costume_Weekly_Rent }}</p>
+        <p>Costume Created Date:{{ object.Costume_Created_Date }}</p>
+        <p>Costume Modified Date: {{ object.Costume_Modified_Date }}</p>
+        <p>Costume Created Date:{{ object.Costume_Created_Date }}</p>
+
+
+    </div>
+
+    <!--    Costume Edit Delete button -->
+
+    <p>
+         <a href="{% url 'Costume_update' Costume.pk %}">Edit</a> |
+
+            <a href="{% url 'Costume_delete' Costume.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'Costume_list' %}">All Costume</a>.</p>
+
+
+{% endblock content %}

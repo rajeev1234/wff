@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="musician-entry">
+
+
+        <h2>Musician_Author: {{ object.Musician_Author }}</h2>
+        <p>Musician_Daily_Charges:{{ object.Musician_Daily_Charges }}</p>
+        <p>Musician_Description:{{ object.Musician_Description }}</p>
+        <p>Musician_Financial_Available:{{ object.Musician_Financial_Available }}</p>
+        <p>Musician_Genre:{{ object.Musician_Genre }}</p>
+        <!-- <p>Musician_ID:{{ object.Musician_ID }}</p> -->
+        <!-- <p>musician_Message:{{ object.musician_Message }}</p> -->
+        <p>Musician_Created_Date:{{ object.Musician_Created_Date }}</p>
+
+
+    </div>
+
+    <!--    musician Edit Delete button -->
+
+    <p>
+        <a href="{% url 'musician_edit' Musician.pk %}">Edit</a> |
+
+        <a href="{% url 'musician_delete' Musician.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'musician_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

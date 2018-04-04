@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.Singer_Description }}</h2>
+
+
+        <p>Daily Charges : {{ object.Singer_Daily_Charges }}</p>
+        <p>Financials Available : {{ object.Singer_Financials_Available }}</p>
+        <p>Singer_Genre : {{ object.Singer_Genre }}</p>
+
+    </div>
+
+    <!--    Singer Edit Delete button -->
+
+    <p>
+        <a href="{% url 'Singer_update' Singer.pk %}">Edit</a> |
+
+        <a href="{% url 'Singer_delete' Singer.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'Singer_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

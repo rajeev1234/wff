@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.FilmProjectForPermit_Category }}</h2>
+        <p>Crew_Size :  {{ object.FilmProjectForPermit_Crew_Size }}</p>
+        <p>ScriptasFile : {{ object.FilmProjectForPermit_ScriptasFile }}</p>
+        <p>Project_Name : {{ object.FilmProjectForPermit_Project_Name }}</p>
+        <p>Synopsis : {{ object.FilmProjectForPermit_Synopsis }}</p>
+        <p>Title : {{ object.FilmProjectForPermit_Title }}</p>
+        <p>Creator : {{ object.FilmProjectForPermit_Creator }}</p>
+        <p>Modified_Date : {{ object.FilmProjectForPermit_Modified_Date }}</p>
+        <p>Created_Date : {{ object.FilmProjectForPermit_Created_Date }}</p>
+    </div>
+
+    <!--    FilmProjectForPermit Edit Delete button -->
+
+    <p>
+        <a href="{% url 'FilmProjectForPermit_update' FilmProjectForPermit.pk %}">Edit</a> |
+
+        <a href="{% url 'FilmProjectForPermit_delete' FilmProjectForPermit.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'FilmProjectForPermit_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

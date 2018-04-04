@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="permit_query-entry">
+
+
+        <h2>PermitQuery_Author: {{ object.PermitQuery_Author }}</h2>
+        <p>PermitQuery_API_Address:{{ object.PermitQuery_API_Address }}</p>
+        <p>PermitQuery_City_State_Country:{{ object.PermitQuery_City_State_Country }}</p>
+        <p>PermitQuery_Latitude:{{ object.PermitQuery_Latitude }}</p>
+        <p>PermitQuery_Location:{{ object.PermitQuery_Location }}</p>
+        <p>PermitQuery_Longitude:{{ object.PermitQuery_Longitude }}</p>
+        <p>PermitQuery_Map_Address:{{ object.PermitQuery_Map_Address }}</p>
+        <p>PermitQuery_Permit_Query_Number:{{ object.Permit_Query_Number }}</p>
+        <p>PermitQuery_Query_Mode:{{ object.PermitQuery_Query_Mode }}</p>
+        <p>PermitQuery_Street_Address:{{ object.PermitQuery_Street_Address }}</p>
+        <!-- <p>permit_query_Message:{{ object.permit_query_Message }}</p> -->
+        <p>PermitQuery_Created_Date:{{ object.PermitQuery_Created_Date }}</p>
+
+    </div>
+
+    <!--    permit_query Edit Delete button -->
+
+    <p>
+        <a href="{% url 'permit_query_edit' PermitQuery.pk %}">Edit</a> |
+
+        <a href="{% url 'permit_query_delete' PermitQuery.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'permit_query_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

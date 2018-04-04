@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="mimicry_artist-entry">
+
+
+        <h2>MimicryArtist_Author: {{ object.MimicryArtist_Author }}</h2>
+        <p>MimicryArtist_Daily_Financials:{{ object.MimicryArtist_Daily_Financials }}</p>
+        <p>MimicryArtist_Description:{{ object.MimicryArtist_Description }}</p>
+        <p>MimicryArtist_Financials_Available:{{ object.MimicryArtist_Financials_Available }}</p>
+        <!-- <p>Mimicry_Artist_ID:{{ object.Mimicry_Artist_ID }}</p> -->
+        <!-- <p>Mimicry_Description:{{ object.Mimicry_Description }}</p> -->
+        <p>MimicryArtist_Voices:{{ object.MimicryArtist_Voices }}</p>
+
+        <!-- <p>mimicry_artist_Message:{{ object.mimicry_artist_Message }}</p> -->
+        <p>MimicryArtist_Created_Date:{{ object.MimicryArtist_Created_Date }}</p>
+
+    </div>
+
+    <!--    mimicry_artist Edit Delete button -->
+
+    <p>
+        <a href="{% url 'mimicry_artist_edit' MimicryArtist.pk %}">Edit</a> |
+
+        <a href="{% url 'mimicry_artist_delete' MimicryArtist.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'mimicry_artist_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

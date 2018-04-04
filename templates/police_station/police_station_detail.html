@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="police_station-entry">
+
+
+        <h2>Police Station Author: {{ object.PoliceStation_Author }}</h2>
+        <p>Police Station Area_Police_Station:{{ object.PoliceStation_Area_Police_Station }}</p>
+        <p>Police Station DCP:{{ object.PoliceStation_DCP }}</p>
+        <p>Police Station Station_Name:{{ object.PoliceStation_Station_Name }}</p>
+
+        <!-- <p>police_station_Message:{{ object.police_station_Message }}</p> -->
+        <p>Police Station Created_Date:{{ object.PoliceStation_Created_Date }}</p>
+
+    </div>
+
+    <!--    police_station Edit Delete button -->
+
+    <p>
+        <a href="{% url 'police_station_edit' PoliceStation.pk %}">Edit</a> |
+
+        <a href="{% url 'police_station_delete' PoliceStation.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'police_station_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

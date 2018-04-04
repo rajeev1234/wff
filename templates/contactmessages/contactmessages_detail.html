@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="contactmessages-entry">
+
+        <h2>ContactMessages_Address:{{ object.ContactMessages_Address }}</h2>
+        <p>ContactMessages_Camera_Model: {{ object.ContactMessages_Camera_Model }}</p>
+        <p>ContactMessages_City_State_Country:{{ object.ContactMessages_City_State_Country }}</p>
+        <p>ContactMessages_Company_name: {{ object.ContactMessages_Company_Name }}</p>
+        <p>ContactMessages_Email: {{ object.ContactMessages_Email }}</p>
+        <p>ContactMessages_From_Page: {{ object.ContactMessages_From_Page }}</p>
+        <p>ContactMessages_From_Resource: {{ object.ContactMessages_From_Resource }}</p>
+        <p>ContactMessages_Full_Name: {{ object.ContactMessages_Full_Name }}</p>
+        <p>ContactMessages_Full_Name: {{ object.ContactMessages_Full_Name }}</p>
+        <p>ContactMessages_Phone_Number: {{ object.ContactMessages_Phone_Number }}</p>
+        <p>ContactMessages_Profile: {{ object.ContactMessages_Profile }}</p>
+        <p>ContactMessages_Message: {{ object.ContactMessages_Messages }}</p>
+    </div>
+
+    <!--    contactmessages Edit Delete button -->
+
+    <p>
+        <a href="{% url 'contactmessages_edit' contactmessages.pk %}">Edit</a> |
+
+        <a href="{% url 'contactmessages_delete' contactmessages.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'contactmessages_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

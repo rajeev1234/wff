@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for District_list.html -->
+
+{% block title %}Districts{% endblock %}
+
+{% block content %}
+
+    <!-- create list of Districts -->
+
+    {% for District in object_list %}
+
+      <!-- create card deck for displaying Districts -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ District.District_Creator }}</span>
+            <span class="text-muted">{{ District.District_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ District.District_Code }}</p>
+
+            <a href="{% url 'District_update' District.pk %}">Edit</a> |
+
+            <a href="{% url 'District_delete' District.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of Districts -->
+            {% for comment in District.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.District_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

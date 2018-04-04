@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="client-entry">
+
+        <h2>Client_Contact_Person:{{ object.Client_Contact_Person }}</h2>
+        <p>Client_Contact_Person_Designation: {{ object.Client_Contact_Person_Designation }}</p>
+        <p>Client_Contact_Person_Email:{{ object.Client_Contact_Person_Email }}</p>
+        <p>Client_Contact_Person_Number: {{ object.Client_Contact_Person_Number }}</p>
+        <p>Client_Production_House_City_Address:{{ object.Client_Production_House_City_Address }}</p>
+        <p>Client_Production_House_Name: {{ object.Client_Production_House_Name }}</p>
+        <p>Client_Production_House_Street_Addrerss:{{ object.Client_Production_House_Street_Addrerss }}</p>
+    </div>
+
+    <!--    client Edit Delete button -->
+
+    <p>
+        <a href="{% url 'client_edit' client.pk %}">Edit</a> |
+
+        <a href="{% url 'client_delete' client.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'client_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

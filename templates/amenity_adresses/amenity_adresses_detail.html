@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="amenity_adresses-entry">
+
+        <h2>Amenity_Adresses_Car_Parking:{{ object.Amenity_Adresses_Car_Parking }}</h2>
+        <p>Amenity_Adresses_Catering_Base: {{ object.Amenity_Adresses_Catering_Base }}</p>
+        <p>Amenity_Adresses_Genset_Parking:{{ object.Amenity_Adresses_Genset_Parking }}</p>
+        <p>Amenity_Adresses_Location_Id: {{ object.Amenity_Adresses_Location_Id }}</p>
+        <p>Amenity_Adresses_Truck_Parking:{{ object.Amenity_Adresses_Truck_Parking }}</p>
+        <p>Amenity_Adresses_Vanity_Parking: {{ object.Amenity_Adresses_Vanity_Parking }}</p>
+
+    </div>
+    
+
+        <a href="{% url 'amenity_adresses_edit' amenity_adresses.pk %}">Edit</a> |
+
+        <a href="{% url 'amenity_adresses_delete' amenity_adresses.pk %}">Delete</a>
+    </p>
+
+       # facebook like button
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'amenity_adresses_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

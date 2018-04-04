@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for booking_list.html -->
+
+{% block title %}bookings{% endblock %}
+
+{% block content %}
+
+    <!-- create list of bookings -->
+
+    {% for booking in object_list %}
+
+      <!-- create card deck for displaying bookings -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ booking.booking_Author }}</span>
+            <span class="text-muted">{{ booking.created_date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ booking.booking_Message }}</p>
+
+            <a href="{% url 'booking_edit' booking.pk %}">Edit</a> |
+
+            <a href="{% url 'booking_delete' booking.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of bookings -->
+            {% for comment in booking.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.booking_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

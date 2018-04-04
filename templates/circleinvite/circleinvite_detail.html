@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="circleinvite-entry">
+
+        <h2>{{ object.CircleInvite_Accepted }}</h2>
+        <p>{{ object.CircleInvite_Created_Date }}</p>
+
+    </div>
+
+    <!--    circleinvite Edit Delete button -->
+
+    <p>
+        <a href="{% url 'circleinvite_edit' circleinvite.pk %}">Edit</a> |
+
+        <a href="{% url 'circleinvite_delete' circleinvite.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'circleinvite_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

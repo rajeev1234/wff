@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="District-entry">
+
+        <h2>{{ object.District_Name }}</h2>
+        <p>{{ object.District_Complete }}</p>
+        <p>District Email :  {{ object.District_Email }}</p>
+        <p>Created Date : {{ object.District_Created_Date }}</p>
+         <p>District HeadQuater{{ object.District_Headquater }}</p>
+        <p>District Phq : {{ object.District_Phq }}</p>
+        <p>District Phq Email : {{ object.District_Phq_Email }}</p> 
+        <p>District Phq Postal Address  : {{ object.District_Phq_Postal_Address }}</p>
+        <p>District Phq Web : {{ object.District_Phq_Web }}</p>
+        <p>District Police Hqaddress : {{ object.District_Police_Hqaddress }}</p> 
+        <p>District_Postal_Address : {{ object.District_Postal_Address }}</p>
+        <p>District State : {{ object.District_State }}</p>
+        <p>District_Web_Address : {{ object.District_Web_Address }}</p>
+        <p>District_Creator : {{ object.District_Creator }}</p>
+
+    </div>
+
+    <!--    District Edit Delete button -->
+
+    <p>
+        <a href="{% url 'District_update' District.pk %}">Edit</a> |
+
+        <a href="{% url 'District_delete' District.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'District_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

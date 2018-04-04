@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="location_pitch-entry">
+
+
+        <h2>Author:            {{ object.location_pitch_Author }}</h2>
+        <p>By_User:             {{ object.LocationPitch_By_User }}</p>
+        <p>Location_required:  {{ object.LocationPitch_Location_Required }}</p>
+        <p>Submitted:          {{ object.LocationPitch_Submitted }}</p>
+        <p>Location_Pitch_Message:{{ object.LocationPitch_Message }}</p>
+        <p>Created_Date:       {{ object.LocationPitch_Created_Date }}</p>
+
+
+
+    </div>
+
+    <!--    location_pitch Edit Delete button -->
+
+    <p>
+        <a href="{% url 'location_pitch_details' LocationPitch.pk %}">Edit</a> |
+
+        <a href="{% url 'location_pitch_delete' LocationPitch.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'location_pitch_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

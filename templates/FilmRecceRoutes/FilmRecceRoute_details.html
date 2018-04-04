@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.FilmRecceRoute_Filmrecce_Name }}</h2>
+        <p>Creator : {{ object.FilmRecceRoute_Creator }}</p>
+        <p>Distance : {{ object.FilmRecceRoute_Distance }}</p>
+        <p>Route_Name : {{ object.FilmRecceRoute_Route_Name }}</p>   
+        <p>Travel_Time : {{ object.FilmRecceRoute_Travel_Time }}</p>
+        <p>Created_Date : {{ object.FilmRecceRoute_Created_Date }}</p>
+        <p>Modified_Date : {{ object.FilmRecceRoute_Modified_Date }}</p>
+
+    </div>
+
+    <!--    FilmRecceRoute Edit Delete button -->
+
+    <p>
+        <a href="{% url 'FilmRecceRoute_update' FilmRecceRoute.pk %}">Edit</a> |
+
+        <a href="{% url 'FilmRecceRoute_delete' FilmRecceRoute.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'FilmRecceRoute_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="actionvehicle-entry">
+
+        <h2>ActionVehicle_Color:{{ object.ActionVehicle_Color }}</h2>
+        <p>ActionVehicle_Action_Vehicle_Id: {{ object.ActionVehicle_Action_Vehicle_Id }}</p>
+        <p>ActionVehicle_Company:{{ object.ActionVehicle_Company }}</p>
+        <p>ActionVehicle_Daily_Rent:{{ object.ActionVehicle_Daily_Rent }}</p>
+        <p>ActionVehicle_Description:{{ object.ActionVehicle_Description }}</p>
+        <p>ActionVehicle_Model:{{ object.ActionVehicle_Model }}</p>
+        <p>ActionVehicle_Modification:{{ object.ActionVehicle_Modification }}</p>
+        <p>ActionVehicle_Monthly_Rent:{{ object.ActionVehicle_Monthly_Rent }}</p>
+        <p>ActionVehicle_Ownership:{{ object.ActionVehicle_Ownership }}</p>
+        <p>ActionVehicle_Registration_no:{{ object.ActionVehicle_Registration_Number }}</p>
+        <p>ActionVehicle_Rigging:{{ object.ActionVehicle_Rigging }}</p>
+
+
+    </div>
+<!--   actionvehicle Edit Delete button -->
+
+    <p>
+        <a href="{% url 'actionvehicle_edit' actionvehicle.pk %}">Edit</a> |
+
+        <a href="{% url 'actionvehicle_delete' actionvehicle.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'actionvehicle_list' %}">All Messages</a>.</p> --> -->
+
+
+{% endblock content %}

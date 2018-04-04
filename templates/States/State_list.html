@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for State_list.html -->
+
+{% block title %}State{% endblock %}
+
+{% block content %}
+
+    <!-- create list of State -->
+
+    {% for State in object_list %}
+
+      <!-- create card deck for displaying State -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ State.States }}</span>
+            {# <span class="text-muted">{{ State.State_Created_Time }}</span> #}
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ State.States }}</p>
+
+            <a href="{% url 'State_update' State.pk %}">Edit</a> |
+
+            <a href="{% url 'State_delete' State.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of State -->
+            {% for comment in State.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.State_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Letter_pdf-entry">
+
+        <h2>Letter pdf Addressing Officer : {{ object.Letter_pdf_Addressing_Officer }}</h2>
+        <p> Letter pdf Project : {{ object.Letter_pdf_Project }}</p>
+        <p>Letter pdf Creator : {{ object.Letter_pdf_Creator }}</p>
+        <p>Letter pdf Created Date : {{ object.Letter_pdf_Created_Date }}</p>
+        
+    
+
+    <!--    Post Edit Delete button -->
+
+    <p>
+        <a href="{% url 'Letter_pdf_edit' letter_pdf.pk %}">Edit</a> |
+
+        <a href="{% url 'Letter_pdf_delete' letter_pdf.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'post_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

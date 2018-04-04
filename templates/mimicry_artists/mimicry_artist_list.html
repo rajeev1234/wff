@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for mimicry_artist_list.html -->
+
+{% block title %}mimicry_artists{% endblock %}
+
+{% block content %}
+
+    <!-- create list of mimicry_artists -->
+
+    {% for mimicry_artist in object_list %}
+
+      <!-- create card deck for displaying mimicry_artists -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ mimicry_artist.MimicryArtist_Author }}</span>
+            <span class="text-muted">{{ mimicry_artist.MimicryArtist_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ mimicry_artist.MimicryArtist_Description }}</p>
+
+            <a href="{% url 'mimicry_artist_edit' mimicry_artist.pk %}">Edit</a> |
+
+            <a href="{% url 'mimicry_artist_delete' mimicry_artist.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of mimicry_artists -->
+            {% for comment in mimicry_artist.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.mimicry_artist_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

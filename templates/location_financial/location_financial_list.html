@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for location_financial_list.html -->
+
+{% block title %}location_financials{% endblock %}
+
+{% block content %}
+
+    <!-- create list of location_financials -->
+
+    {% for location_financial in object_list %}
+
+      <!-- create card deck for displaying location_financials -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ location_financial.LocationFinancial_Creator }}</span>
+            <span class="text-muted">{{ location_financial.LocationFinancial_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ location_financial.LocationFinancial_Location_Id }}</p>
+
+            <a href="{% url 'location_financial_update' location_financial.pk %}">Edit</a> |
+
+            <a href="{% url 'location_financial_delete' location_financial.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of location_financials -->
+            {% for comment in location_financial.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.location_financial_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

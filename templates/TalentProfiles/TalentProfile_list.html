@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for TalentProfile_list.html -->
+
+{% block title %}TalentProfile{% endblock %}
+
+{% block content %}
+
+    <!-- create list of TalentProfile -->
+
+    {% for TalentProfile in object_list %}
+
+      <!-- create card deck for displaying TalentProfile -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ TalentProfile.TalentProfile_Child_Artist }}</span>
+            <span class="text-muted">{{ TalentProfile.TalentProfile_Model }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ TalentProfile.TalentProfile_Amount }}</p>
+
+            <a href="{% url 'TalentProfile_update' TalentProfile.pk %}">Edit</a> |
+
+            <a href="{% url 'TalentProfile_delete' TalentProfile.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of TalentProfile -->
+            {% for comment in TalentProfile.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.TalentProfile_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

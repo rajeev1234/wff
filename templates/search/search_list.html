@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for search_list.html -->
+
+{% block title %}search{% endblock %}
+
+{% block content %}
+
+    <!-- create list of search -->
+
+    {% for search in object_list %}
+
+      <!-- create card deck for displaying search -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">Search_City : {{ search.Search_City }}</span>
+            <span class="text-muted">Search_Key_Word : {{ search.Search_Key_Word }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ search.Range }}</p>
+
+            <a href="{% url 'search_edit' search.pk %}">Edit</a> |
+
+            <a href="{% url 'search_delete' search.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of search -->
+            {% for comment in search.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.search_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

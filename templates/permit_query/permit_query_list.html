@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for permit_query_list.html -->
+
+{% block title %}permit_querys{% endblock %}
+
+{% block content %}
+
+    <!-- create list of permit_querys -->
+
+    {% for permit_query in object_list %}
+
+      <!-- create card deck for displaying permit_querys -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ permit_query.PermitQuery_Author }}</span>
+            <span class="text-muted">{{ permit_query.PermitQuery_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ permit_query.PermitQuery_Location }}</p>
+
+            <a href="{% url 'permit_query_edit' permit_query.pk %}">Edit</a> |
+
+            <a href="{% url 'permit_query_delete' permit_query.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of permit_querys -->
+            {% for comment in permit_query.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.permit_query_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

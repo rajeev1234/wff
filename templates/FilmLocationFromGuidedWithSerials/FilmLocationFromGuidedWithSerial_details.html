@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.FilmLocationFromGuidedWithSerial_Arrival_Time }}</h2>
+        <p>Departure Time : {{ object.FilmLocationFromGuidedWithSerial_Departure_Time }}</p>
+        <p>Location From Guideno : {{ object.FilmLocationFromGuidedWithSerial_Location_From_Guideno }}</p>
+        <p>Location : {{ object.FilmLocationFromGuidedWithSerial_Location }}</p>
+        <p>Creator : {{ object.FilmLocationFromGuidedWithSerial_Creator }}</p>
+        <p>Modified_Date : {{ object.FilmLocationFromGuidedWithSerial_Modified_Date }}</p>
+        <p>Created_Date : {{ object.FilmLocationFromGuidedWithSerial_Created_Date }}</p>
+
+    </div>
+
+    <!--    EducationInfo Edit Delete button -->
+
+    <p>
+        <a href="{% url 'FilmLocationFromGuidedWithSerial_update' FilmLocationFromGuidedWithSerial.pk %}">Edit</a> |
+
+        <a href="{% url 'FilmLocationFromGuidedWithSerial_delete' FilmLocationFromGuidedWithSerial.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'FilmLocationFromGuidedWithSerial_list' %}">All FilmLocationFromGuide</a>.</p>
+
+
+{% endblock content %}

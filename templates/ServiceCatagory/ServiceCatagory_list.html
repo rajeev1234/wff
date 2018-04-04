@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for ServiceCatagory_list.html -->
+
+{% block title %}ServiceCatagories{% endblock %}
+
+{% block content %}
+
+    <!-- create list of ServiceCatagorys -->
+
+    {% for ServiceCatagory in object_list %}
+
+      <!-- create card deck for displaying ServiceCatagorys -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ ServiceCatagory.ServiceCatagory_Users }}</span>
+           {#  <span class="text-muted">{{ ServiceCatagory.ServiceCatagory_Created_Time }}</span> #}
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ ServiceCatagory.ServiceCatagory_Service_Category }}</p>
+
+            <a href="{% url 'ServiceCatagory_update' ServiceCatagory.pk %}">Edit</a> |
+
+            <a href="{% url 'ServiceCatagory_delete' ServiceCatagory.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of ServiceCatagorys -->
+            {% for comment in ServiceCatagory.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.ServiceCatagory_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

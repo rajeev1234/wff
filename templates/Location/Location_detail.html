@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="Location-entry">
+
+        <h2>Area : {{ object.Location_Area }}</h2>
+        <p>Authorities Involved : {{ object.Location_Authorities_Involved }}</p>
+        <p>Budget : {{ object.Location_Budget }}</p>
+     <p>City : {{ object.Location_City }}</p>
+     <p>Description : {{ object.Location_Description }}</p>
+     <p>District : {{ object.Location_District }}</p>
+     <p>Locality : {{ object.Location_Locality }}</p>
+     <p>Location Creator : {{ object.Location_Creator }}</p>
+     <p>Location Financial : {{ object.Location_Financial }}</p>
+     <p>Location Id : {{ object.Location_Id }}</p>
+     <p>Location Latitude : {{ object.Location_Latitude }}</p>
+     <p>Location Longitude : {{ object.Location_Longitude }}</p>
+     <p>Location Name  : {{ object.Location_Name }}</p>
+     <p>Location Postal Address : {{ object.Location_Postal_Address }}</p>
+     <p>Location Subcategory : {{ object.Location_Subcategory }}</p>
+     <p>Location Creator Id : {{ object.Location_Creator_Id }}</p>
+     <p>Modifications Allowed : {{ object.Location_Modifications_Allowed}}</p>
+    <p>Ownership Status : {{ object.Location_Ownership_Status}}</p>
+    <p>Pincode : {{ object.Location_Pincode}}</p>
+    <p>Restrictions : {{ object.Location_Restrictions}}</p>
+    <p>State : {{ object.Location_State}}</p>
+    <p>Street Address : {{ object.Location_Street_Address}}</p>
+    <p>Surrounding : {{ object.Location_Surrounding}}</p>
+    <p>Created Date : {{ object.Location_Created_Date}}</p>
+    <p>Modified Date : {{ object.Location_Modified_Date }}</p>
+    </div>
+
+    <!--    Location Edit Delete button -->
+
+    <p>
+        <a href="{% url 'Location_edit' location.pk %}">Edit</a> |
+
+        <a href="{% url 'Location_delete' location.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'Location_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

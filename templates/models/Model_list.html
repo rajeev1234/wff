@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for Model_list.html -->
+
+{% block title %}Models{% endblock %}
+
+{% block content %}
+
+    <!-- create list of Models -->
+
+    {% for Model in object_list %}
+
+      <!-- create card deck for displaying Models -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ Model.Models_Author }}</span>
+            <span class="text-muted">{{ Model.Models_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ Model.Models_Description }}</p>
+
+            <a href="{% url 'Model_edit' Model.pk %}">Edit</a> |
+
+            <a href="{% url 'Model_delete' Model.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of Models -->
+            {% for comment in Model.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.Model_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

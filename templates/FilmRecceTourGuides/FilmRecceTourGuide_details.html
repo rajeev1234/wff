@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+
+        <h2>{{ object.FilmRecceTourGuide_Message }}</h2>
+        <p>Author: {{ object.FilmRecceTourGuide_Creator }}</p>
+        <p>{{ object.FilmRecceTourGuide_Created_Time }}</p>
+
+    </div>
+
+    <!--    FilmRecceTourGuide Edit Delete button -->
+
+    <p>
+        <a href="{% url 'FilmRecceTourGuide_update' FilmRecceTourGuide.pk %}">Edit</a> |
+
+        <a href="{% url 'FilmRecceTourGuide_delete' FilmRecceTourGuide.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'FilmRecceTourGuide_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

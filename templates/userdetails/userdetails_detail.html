@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="userdetails-entry">
+
+        <h2>UserDetails_UserDetails_Message:{{ object.UserDetails_UserDetails_Message }}</h2>
+        <p>UserDetails_Author: {{ object.UserDetails_Author }}</p>
+        <p>UserDetails_Created_Date:{{ object.UserDetails_Created_Date }}</p>
+        <p>UserDetails_City: {{ object.UserDetails_City }}</p>
+        <p>UserDetails_Completed:{{ object.UserDetails_Completed }}</p>
+        <p>UserDetails_Country: {{ object.UserDetails_Country }}</p>
+        <p>UserDetails_Date_Of_Birth:{{ object.UserDetails_Date_Of_Birth }}</p>
+        <p>UserDetails_First_Name: {{ object.UserDetails_First_Name }}</p>
+        <p>UserDetails_Gender:{{ object.UserDetails_Gender }}</p>
+        <p>UserDetails_Last_Name: {{ object.UserDetails_Last_Name }}</p>
+        <p>UserDetails_Phone:{{ object.UserDetails_Phone }}</p>
+        <p>UserDetails_Pin_Code: {{ object.UserDetails_Pin_Code }}</p>
+        <p>UserDetails_Profile_Picture:{{ object.UserDetails_Profile_Picture }}</p>
+        <p>UserDetails_Ratings: {{ object.UserDetails_Ratings }}</p>
+        <p>UserDetails_Street_Address:{{ object.UserDetails_Street_Address }}</p>
+        <p>UserDetails_User_Description:{{ object.UserDetails_User_Description }}</p>
+        <p>UserDetails_User_ID:{{ object.UserDetails_User_ID }}</p>
+</div>
+
+    <!--    userdetails Edit Delete button -->
+
+    <p>
+        <a href="{% url 'userdetails_edit' userdetails.pk %}">Edit</a> |
+
+        <a href="{% url 'userdetails_delete' userdetails.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'userdetails_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

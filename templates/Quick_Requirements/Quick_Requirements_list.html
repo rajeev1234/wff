@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for Quick_Requirements_list.html -->
+
+{% block title %}Quick_Requirements{% endblock %}
+
+{% block content %}
+
+    <!-- create list of Quick_Requirements -->
+
+    {% for Quick_Requirements in object_list %}
+
+      <!-- create card deck for displaying Quick_Requirements -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">Recipient : {{ Quick_Requirements.Quick_Requirements_Recipient }}</span>
+            <span class="text-muted">Tentative Dates : {{ Quick_Requirements.Quick_Requirements_Tentative_Dates }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ Quick_Requirements.Shoot_Category }}</p>
+
+            <a href="{% url 'Quick_Requirements_edit' Quick_Requirements.pk %}">Edit</a> |
+
+            <a href="{% url 'Quick_Requirements_delete' Quick_Requirements.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of Quick_Requirements -->
+            {% for comment in Quick_Requirements.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.Quick_Requirements_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

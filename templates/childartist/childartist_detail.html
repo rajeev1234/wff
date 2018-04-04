@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="childartist-entry">
+
+        <h2>Body_Type:{{ object.ChildArtist_Body_Type }}</h2>
+        <p>Child_Artist_Id: {{ object.ChildArtist_Child_Artist_Id }}</p>
+        <p>Daily_Charges:{{ object.ChildArtist_Daily_Charges }}</p>
+        <p>Description: {{ object.ChildArtist_Description }}</p>
+        <p>Ethnicity:{{ object.ChildArtist_Ethnicity }}</p>
+        <p>Eye_Color: {{ object.ChildArtist_Eye_Color }}</p>
+        <p>Financial_Available:{{ object.ChildArtist_Financial_Available }}</p>
+        <p>Gender: {{ object.ChildArtist_Gender }}</p>
+        <p>Height:{{ object.ChildArtist_Height }}</p>
+        <p>Relation_With_Artist: {{ object.ChildArtist_Relation_With_Artist }}</p>
+        <p>Skin_Color:{{ object.ChildArtist_Skin_Color }}</p>
+        <p>Special_Skills: {{ object.ChildArtist_Special_Skills }}</p>
+        <p>Weight:{{ object.ChildArtist_Weight }}</p>
+</div>
+
+    <!--    childartist Edit Delete button -->
+
+    <p>
+        <a href="{% url 'childartist_edit' childartist.pk %}">Edit</a> |
+
+        <a href="{% url 'childartist_delete' childartist.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'childartist_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

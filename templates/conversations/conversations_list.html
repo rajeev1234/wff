@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for conversations_list.html -->
+
+{% block title %}conversations{% endblock %}
+
+{% block content %}
+
+    <!-- create list of conversationss -->
+
+    {% for conversations in object_list %}
+
+      <!-- create card deck for displaying conversationss -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ conversations.Conversations_Message_List }}</span>
+            <span class="text-muted">{{ conversations.Conversations_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ conversations.Conversations_Conversations_Message }}</p>
+
+            <a href="{% url 'conversations_edit' conversations.pk %}">Edit</a> |
+
+            <a href="{% url 'conversations_delete' conversations.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of conversationss -->
+            {% for comment in conversations.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.conversations_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,67 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for Location_Authorities_list.html -->
+
+{% block title %}Location_Authorities{% endblock %}
+
+{% block content %}
+
+    <!-- create list of Location_Authorities -->
+
+    {% for Location_Authoritiy in object_list %}
+
+      <!-- create card deck for displaying Location_Authorities -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ LocationAuthoritiy.Location_Authority_Detail }}</span>
+            <span class="text-muted">{{ LocationAuthoritiy.Location_Authority_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+
+            <h2>Authority Contact Number : {{ LocationAuthoritiy.Location_Authority_Contact_Number }}</h2>
+        <p>Authority Email : {{ Location_Authoritiy.Location_Authority_Email }}</p>
+    <p>Authority Name : {{ Location_Authoritiy.Location_Authority_Name }}</p>
+        <p>Creator : {{ Location_Authoritiy.Location_Authority_Creator }}</p>
+    <p>Created Date : {{ Location_Authoritiy.Location_Authority_Created_Date }}</p>
+
+            
+
+            <a href="{% url 'Location_Authorities_edit' Location_Authoritiy.pk %}">Edit</a> |
+
+            <a href="{% url 'Location_Authorities_delete' Location_Authoritiy.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of Location_Authorities -->
+            {% for comment in LocationAuthoritiy.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.LocationAuthoritiy_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

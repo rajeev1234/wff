@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="voiceoverartist-entry">
+
+        <h2>VoiceOverArtist_Voice_Over_Artist_Message:{{ object.VoiceOverArtist_Voice_Over_Artist_Message }}</h2>
+        <p>VoiceOverArtist_Charges_Available: {{ object.VoiceOverArtist_Charges_Available }}</p>
+        <p>VoiceOverArtist_Daily_Charges: {{ object.VoiceOverArtist_Daily_Charges }}</p>
+        <p>VoiceOverArtist_Description: {{ object.VoiceOverArtist_Description }}</p>
+        <p>VoiceOverArtist_Language: {{ object.VoiceOverArtist_Language }}</p>
+        <p>VoiceOverArtist_Voice_Over_Artist_ID: {{ object.VoiceOverArtist_Voice_Over_Artist_ID }}</p>
+        <p>Voice_Over_Artist_ID: {{ object.Voice_Over_Artist_ID }}</p>
+        <p>VoiceOverArtist_Voice_Scale: {{ object.VoiceOverArtist_Voice_Scale }}</p>
+        <p>VoiceOverArtist_Created_Date:{{ object.VoiceOverArtist_Created_Date }}</p>
+  </div>
+
+    <!--    voiceoverartist Edit Delete button -->
+
+    <p>
+        <a href="{% url 'voiceoverartist_edit' voiceoverartist.pk %}">Edit</a> |
+
+        <a href="{% url 'voiceoverartist_delete' voiceoverartist.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'voiceoverartist_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

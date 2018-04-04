@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="location_psndc-entry">
+
+
+        <h2>Author: {{ object.LocationPSnDC_Author }}</h2>
+        <p>Dc_Office:{{ object.LocationPSnDC_Dc_Office }}</p>
+        <p>Dcp_Office:{{ object.LocationPSnDC_Dcp_Office }}</p>
+        <p>Location_Id:{{ object.LocationPSnDC_Location_Id }}</p>
+        <p>Policestation:{{ object.LocationPSnDC_Police_Station }}</p>
+
+        <p>Location_PSnDC_Message:{{ object.LocationPSnDC_Message }}</p>
+        <p>Created_Date:{{ object.LocationPSnDC_Created_Date }}</p>
+
+    </div>
+
+    <!--    location_psndc Edit Delete button -->
+
+    <p>
+        <a href="{% url 'location_psndc_update' LocationPSnDC.pk %}">Edit</a> |
+
+        <a href="{% url 'location_psndc_delete' LocationPSnDC.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'location_psndc_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}

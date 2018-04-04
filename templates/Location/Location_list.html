@@ -1,0 +1,82 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for Location_list.html -->
+
+{% block title %}Location{% endblock %}
+
+{% block content %}
+
+    <!-- create list of Location -->
+
+    {% for Location in object_list %}
+
+      <!-- create card deck for displaying Location -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ Location.Area }}</span>
+
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>Area : {{ Location.Location_Area }}</p>
+            <p>City : {{ Location.Location_City }}</p>
+     <p>Description : {{ Location.Location_Description }}</p>
+     <p>District : {{ Location.Location_District }}</p>
+     <p>Locality : {{ Location.Location_Locality }}</p>
+     <p>Location Creator : {{ Location.Location_Creator }}</p>
+     <p>Location Financial : {{ Location.Location_Financial }}</p>
+     <p>Location Id : {{ Location.Location_Id }}</p>
+     <p>Location Latitude : {{ Location.Location_Latitude }}</p>
+     <p>Location Longitude : {{ Location.Location_Longitude }}</p>
+     <p>Location Name  : {{ Location.Location_Name }}</p>
+     <p>Location Postal Address : {{ Location.Location_Postal_Address }}</p>
+     <p>Location Subcategory : {{ Location.Location_Subcategory }}</p>
+     <p>Location Creator Id : {{ Location.Location_Creator_Id }}</p>
+     <p>Modifications Allowed : {{ Location.Location_Modifications_Allowed}}</p>
+    <p>Ownership Status : {{ Location.Location_Ownership_Status}}</p>
+    <p>Pincode : {{ Location.Location_Pincode}}</p>
+    <p>Restrictions : {{ Location.Location_Restrictions}}</p>
+    <p>State : {{ Location.Location_State}}</p>
+    <p>Street Address : {{ Location.Location_Street_Address}}</p>
+    <p>Surrounding : {{ Location.Location_Surrounding}}</p>
+    <p>Created Date : {{ Location.Location_Created_Date}}</p>
+     <p>Modified Date : {{ Location.Location_Modified_Date}}</p>
+
+            <a href="{% url 'Location_edit' Location.pk %}">Edit</a> |
+
+            <a href="{% url 'Location_delete' Location.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of Location -->
+            {% for comment in Location.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.Location_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

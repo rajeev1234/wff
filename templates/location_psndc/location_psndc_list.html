@@ -1,0 +1,60 @@
+
+<!-- creating frame for page via base.html -->
+
+{% extends 'base.html' %}
+
+<!-- create title for location_psndc_list.html -->
+
+{% block title %}location_psndcs{% endblock %}
+
+{% block content %}
+
+    <!-- create list of location_psndcs -->
+
+    {% for location_psndc in object_list %}
+
+      <!-- create card deck for displaying location_psndcs -->
+        <div class="card">
+
+        <div class="card-header">
+
+            <span class="font-weight-bold">{{ location_psndc.LocationPSnDC_Author }}</span>
+            <span class="text-muted">{{ location_psndc.LocationPSnDC_Created_Date }}</span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <p>{{ location_psndc.LocationPSnDC_Message }}</p>
+
+            <a href="{% url 'location_psndc_update' location_psndc.pk %}">Edit</a> |
+
+            <a href="{% url 'location_psndc_delete' location_psndc.pk %}">Delete</a>
+
+        </div>
+
+        <div class="card-footer text-center text-muted">
+
+            <!-- create list of comments of location_psndcs -->
+            {% for comment in LocationPSnDC.comment_set.all %}
+
+                <p>
+
+                    <span class="font-weight-bold">{{ comment.location_psndc_Comment_Author }} &middot;</span>
+                    {{ comment }}
+
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+
+      <br />
+
+    {% endfor %}
+
+{% endblock content %}

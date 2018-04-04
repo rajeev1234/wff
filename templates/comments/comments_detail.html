@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="comments-entry">
+
+        <h2>Comments_Comment:{{ object.Comments_Comment }}</h2>
+        <p>Comments_Helpfull: {{ object.Comments_Helpfull }}</p>
+        <p>Comments_Created_Date:{{ object.Comments_Created_Date }}</p>
+
+    </div>
+
+    <!--    comments Edit Delete button -->
+
+    <p>
+        <a href="{% url 'comments_edit' comments.pk %}">Edit</a> |
+
+        <a href="{% url 'comments_delete' comments.pk %}">Delete</a>
+    </p>
+
+    <!--    # facebook like button -->
+
+    <div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+
+    <p>Back to <a href="{% url 'comments_list' %}">All Messages</a>.</p>
+
+
+{% endblock content %}
